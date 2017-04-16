@@ -16,24 +16,12 @@ Rectangle {
 		width: 550;
 		anchors.top: header.bottom;
 		anchors.horizontalCenter: parent.horizontalCenter;
+		anchors.topMargin: 5;
 		effects.shadow.y: 2;
 		effects.shadow.x: -1;
 		effects.shadow.blur: 20;
 		effects.shadow.color: "#0002";
 
-		Rectangle {
-			height: 65;
-			anchors.left: parent.left;
-			anchors.right: parent.right;
-			color: "#fff";
-
-			Text {
-				text: "❯";
-				width: 60;
-				height: 34;
-				font.pizelSize: 22;
-				color: "#e6e6e6";
-			}
-		}
+		TodoInput {}
 	}
 }
