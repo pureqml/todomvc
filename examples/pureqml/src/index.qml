@@ -23,7 +23,11 @@ Rectangle {
 		effects.shadow.blur: 20;
 		effects.shadow.color: "#0002";
 
-		TodoInput {}
+		TodoInput { }
+
+		TodoList {
+
+		}
 	}
 
 	Footer {
