@@ -13,6 +13,7 @@ Rectangle {
 	}
 
 	Column {
+		id: content;
 		width: 550;
 		anchors.top: header.bottom;
 		anchors.horizontalCenter: parent.horizontalCenter;
@@ -23,5 +24,10 @@ Rectangle {
 		effects.shadow.color: "#0002";
 
 		TodoInput {}
+	}
+
+	Footer {
+		anchors.top: content.bottom;
+		anchors.topMargin: 64;
 	}
 }
