@@ -2,6 +2,8 @@ Rectangle {
 	anchors.fill: context;
 	color: "#f5f5f5";
 
+	TodoModel { id: todoModel; }
+
 	Text {
 		id: header;
 		anchors.top: parent.top;
@@ -23,11 +25,9 @@ Rectangle {
 		effects.shadow.blur: 20;
 		effects.shadow.color: "#0002";
 
-		TodoInput { }
+		TodoInput { onAddTodo(text): { todoModel.append({ text: text, done: false }) } }
 
-		TodoList {
-
-		}
+		TodoList { onDoneToggled(idx): { todoModel.toggleDone(idx) } }
 	}
 
 	Footer {

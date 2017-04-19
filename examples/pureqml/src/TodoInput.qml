@@ -1,7 +1,9 @@
 Rectangle {
+	signal addTodo;
 	height: 65;
 	anchors.left: parent.left;
 	anchors.right: parent.right;
+	focus: true;
 	color: "#fff";
 
 	Text {
@@ -16,6 +18,7 @@ Rectangle {
 	}
 
 	TextInput {
+		id: todoInput;
 		anchors.top: parent.top;
 		anchors.left: selectAllCheckbox.right;
 		anchors.right: parent.right;
@@ -26,5 +29,10 @@ Rectangle {
 		placeholder.color: "#d9d9d9";
 		placeholder.font.italic: true;
 		color: "#4d4d4d";
+	}
+
+	onSelectPressed: {
+		this.addTodo(todoInput.text)
+		todoInput.text = ""
 	}
 }
