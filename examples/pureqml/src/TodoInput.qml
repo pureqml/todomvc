@@ -23,7 +23,7 @@ Rectangle {
 		anchors.leftMargin: 15;
 		font.pixelSize: 24;
 		placeholder.text: "What needs to be done?";
-		placeholder.color: "#e6e6e6";
+		placeholder.color: "#d9d9d9";
 		placeholder.font.italic: true;
 		color: "#4d4d4d";
 	}
