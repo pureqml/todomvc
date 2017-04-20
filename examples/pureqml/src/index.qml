@@ -39,7 +39,12 @@ Rectangle {
 
 		TodoList { id: list; }
 
-		TodoStatus { todoCount: todoModel.todoCount; }
+		TodoStatus {
+			todoCount: todoModel.todoCount;
+
+			onModeChoosed(text): {
+			}
+		}
 	}
 
 	Footer {
