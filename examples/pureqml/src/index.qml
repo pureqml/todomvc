@@ -2,7 +2,17 @@ Rectangle {
 	anchors.fill: context;
 	color: "#f5f5f5";
 
-	TodoModel { id: todoModel; }
+	JsonStorage {
+		id: storage;
+
+		onLoaded: { todoModel.buildModel(this.getValue(todoModel.name)) }
+	}
+
+	TodoModel {
+		id: todoModel;
+
+		onSave: { storage.setValue(this.name, { rows: this._rows }) }
+	}
 
 	Text {
 		id: header;
