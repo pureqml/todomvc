@@ -37,7 +37,7 @@ Rectangle {
 
 		TodoInput { onAddTodo(text): { todoModel.append({ text: text, done: false }) } }
 
-		TodoList { onDoneToggled(idx): { todoModel.toggleDone(idx) } }
+		TodoList { }
 	}
 
 	Footer {
