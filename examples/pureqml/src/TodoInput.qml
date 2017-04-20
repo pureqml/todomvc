@@ -1,10 +1,6 @@
-Rectangle {
+TodoRectangle {
 	signal addTodo;
-	height: 65;
-	anchors.left: parent.left;
-	anchors.right: parent.right;
 	focus: true;
-	color: "#fff";
 
 	Text {
 		id: selectAllCheckbox;

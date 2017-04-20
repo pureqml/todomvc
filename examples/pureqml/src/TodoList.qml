@@ -3,16 +3,11 @@ ListView {
 	anchors.left: parent.left;
 	anchors.right: parent.right;
 	model: todoModel;
-	delegate: Rectangle {
+	delegate: TodoRectangle {
 		property bool editMode;
 		property int index: model.index;
 		property Mixin hoverMixin: HoverMixin { }
 		height: todoText.paintedHeight + 35;
-		anchors.left: parent.left;
-		anchors.right: parent.right;
-		color: "#fff";
-		border.width: 1;
-		border.color: "#ddd";
 
 		Text {
 			ClickMixin { }
@@ -59,5 +54,5 @@ ListView {
 	}
 
 	remove(idx): { this.model.remove(idx) }
-	toggleDone(idx): { this.model.remove(idx) }
+	toggleDone(idx): { this.model.toggleDone(idx) }
 }
