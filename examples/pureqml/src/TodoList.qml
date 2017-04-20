@@ -73,6 +73,6 @@ ListView {
 
 	onFilterModeChanged: { this.model._buildIndexMap() }
 
-	remove(idx): { this.model.target.remove(idx) }
-	toggleDone(idx): { this.model.target.toggleDone(idx) }
+	remove(idx): { this.model.remove(idx); this.model._buildIndexMap() }
+	toggleDone(idx): { this.model.target.toggleDone(idx); this.model._buildIndexMap() }
 }
