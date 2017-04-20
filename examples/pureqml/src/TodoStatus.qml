@@ -1,7 +1,7 @@
 Column {
 	id: todoStatusProto;
-	signal modeChoosed;
 	property int todoCount;
+	property string filter;
 	anchors.left: parent.left;
 	anchors.right: parent.right;
 	spacing: 1;
@@ -50,7 +50,7 @@ Column {
 
 			choose(idx): {
 				this.currentIndex = idx
-				todoStatusProto.modeChoosed(this.model.get(idx).text)
+				todoStatusProto.filter = this.model.get(idx).text
 			}
 		}
 	}

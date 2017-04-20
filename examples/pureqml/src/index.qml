@@ -37,13 +37,12 @@ Rectangle {
 
 		TodoInput { onAddTodo(text): { todoModel.append({ text: text, done: false }) } }
 
-		TodoList { id: list; }
+		TodoList { filterMode: status.filter; }
 
 		TodoStatus {
-			todoCount: todoModel.todoCount;
+			id: status;
 
-			onModeChoosed(text): {
-			}
+			todoCount: todoModel.todoCount;
 		}
 	}
 

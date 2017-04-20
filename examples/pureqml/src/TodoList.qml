@@ -1,8 +1,26 @@
 ListView {
+	property string filterMode;
 	height: contentHeight;
 	anchors.left: parent.left;
 	anchors.right: parent.right;
-	model: todoModel;
+	model: ProxyModel {
+		target: todoModel;
+
+		function filter(item) {
+			log("item", this.parent.filterMode)
+			switch (this.parent.filterMode) {
+			case 'Active':
+				return !item.done
+			case 'Completed':
+				return item.done
+			case 'All':
+			default:
+				return true
+			}
+		}
+
+		onCompleted: { this.setFilter(this.filter) }
+	}
 	delegate: TodoRectangle {
 		property bool editMode;
 		property int index: model.index;
@@ -53,6 +71,8 @@ ListView {
 		toggleDone: { this.parent.toggleDone(this.index) }
 	}
 
-	remove(idx): { this.model.remove(idx) }
-	toggleDone(idx): { this.model.toggleDone(idx) }
+	onFilterModeChanged: { this.model._buildIndexMap() }
+
+	remove(idx): { this.model.target.remove(idx) }
+	toggleDone(idx): { this.model.target.toggleDone(idx) }
 }
