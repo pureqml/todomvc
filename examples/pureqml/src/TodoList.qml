@@ -7,7 +7,6 @@ ListView {
 		target: todoModel;
 
 		function filter(item) {
-			log("item", this.parent.filterMode)
 			switch (this.parent.filterMode) {
 			case 'Active':
 				return !item.done
@@ -71,8 +70,13 @@ ListView {
 		toggleDone: { this.parent.toggleDone(this.index) }
 	}
 
-	onFilterModeChanged: { this.model._buildIndexMap() }
+	onFilterModeChanged: { this.model.rebuild() }
 
-	remove(idx): { this.model.remove(idx); this.model._buildIndexMap() }
-	toggleDone(idx): { this.model.target.toggleDone(idx); this.model._buildIndexMap() }
+	remove(idx): { this.model.remove(idx); }
+
+	toggleDone(idx): {
+		var done = this.model.get(idx).done
+		this.model.setProperty(idx, "done", !done)
+		this.model.target.update()
+	}
 }

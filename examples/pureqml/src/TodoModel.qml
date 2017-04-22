@@ -3,12 +3,6 @@ ListModel {
 	property int todoCount;
 	property string name: "todoItems";
 
-	toggleDone(idx): {
-		var done = this.get(idx).done
-		this.setProperty(idx, "done", !done)
-		this.update()
-	}
-
 	onReset: { this.update() }
 	onRowsRemoved: { this.update() }
 	onRowsInserted: { this.update() }
