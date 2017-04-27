@@ -1,6 +1,0 @@
-[submodule "examples/pureqml/qmlcore"]
-	path = examples/pureqml/qmlcore
-	url = git@github.com:pureqml/qmlcore.git
-[submodule "examples/pureqml/src/controls"]
-	path = examples/pureqml/src/controls
-	url = git@github.com:pureqml/controls.git
