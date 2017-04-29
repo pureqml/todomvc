@@ -37,7 +37,7 @@ Rectangle {
 
 		TodoInput { onAddTodo(text): { todoModel.append({ text: text, done: false }) } }
 
-		TodoList { filterMode: status.filter; }
+		TodoList { id: todoList; filterMode: status.filter; }
 
 		TodoStatus {
 			id: status;

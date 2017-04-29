@@ -28,7 +28,9 @@ TodoRectangle {
 	}
 
 	onSelectPressed: {
-		this.addTodo(todoInput.text)
-		todoInput.text = ""
+		if (todoInput.text) {
+			this.addTodo(todoInput.text)
+			todoInput.text = ""
+		}
 	}
 }
