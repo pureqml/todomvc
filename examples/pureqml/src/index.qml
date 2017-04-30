@@ -30,10 +30,11 @@ Rectangle {
 		anchors.top: header.bottom;
 		anchors.horizontalCenter: parent.horizontalCenter;
 		anchors.topMargin: 5;
-		effects.shadow.y: 2;
-		effects.shadow.x: -1;
-		effects.shadow.blur: 20;
-		effects.shadow.color: "#0002";
+		effects.shadow.y: 10;
+		effects.shadow.blur: 30;
+		effects.shadow.spread: 5;
+		effects.shadow.color: "#00000015";
+		radius: 10;
 
 		TodoInput { onAddTodo(text): { todoModel.append({ text: text, done: false }) } }
 
