@@ -2,6 +2,7 @@ Column {
 	id: todoStatusProto;
 	property int todoCount;
 	property string filter;
+	property string name: "todoFilter";
 	anchors.left: parent.left;
 	anchors.right: parent.right;
 	spacing: 1;
@@ -19,6 +20,7 @@ Column {
 		}
 
 		ListView {
+			id: filterList;
 			width: contentWidth;
 			height: contentHeight;
 			orientation: ListView.Horizontal;
@@ -69,5 +71,16 @@ Column {
 		anchors.rightMargin: 6;
 		color: "f6f6f6";
 		border.color: "#ddd";
+	}
+
+	setFilter(filter): {
+		var newFilter = filter && filter.value ? filter.value : "All"
+		this.filter = newFilter
+		var model = filterList.model
+		for (var i = 0; i < model.count; ++i)
+			if (model.get(i).text == newFilter) {
+				filterList.currentIndex = i
+				break
+			}
 	}
 }

@@ -6,7 +6,6 @@ TodoRectangle {
 	property bool editMode;
 	property int index: model.index;
 	property Mixin hoverMixin: HoverMixin { }
-	//height: 59;
 	height: todoText.paintedHeight + 31;
 
 	Text {

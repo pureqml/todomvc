@@ -5,7 +5,10 @@ Rectangle {
 	JsonStorage {
 		id: storage;
 
-		onLoaded: { todoModel.buildModel(this.getValue(todoModel.name)) }
+		onLoaded: {
+			todoModel.buildModel(this.getValue(todoModel.name))
+			todoStatus.setFilter(this.getValue(todoStatus.name))
+		}
 	}
 
 	TodoModel {
@@ -43,14 +46,15 @@ Rectangle {
 		TodoList {
 			id: todoList;
 
-			filterMode: status.filter;
+			filterMode: todoStatus.filter;
 		}
 
 		TodoStatus {
-			id: status;
+			id: todoStatus;
 			visible: todoModel.count;
-
 			todoCount: todoModel.todoCount;
+
+			onFilterChanged: { storage.setValue(this.name, { value: this.filter }) }
 		}
 	}
 
