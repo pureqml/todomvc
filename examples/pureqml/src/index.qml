@@ -59,7 +59,9 @@ Rectangle {
 			id: todoStatus;
 			visible: todoModel.count;
 			todoCount: todoModel.todoCount;
+			doneCount: todoModel.doneCount;
 
+			onClearCompleted: { todoModel.clearCompleted() }
 			onFilterChanged: { storage.setValue(this.name, { value: this.filter }) }
 		}
 	}

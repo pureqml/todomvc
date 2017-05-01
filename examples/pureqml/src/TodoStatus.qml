@@ -1,5 +1,7 @@
 Column {
 	id: todoStatusProto;
+	signal clearCompleted;
+	property int doneCount;
 	property int todoCount;
 	property string filter;
 	property string name: "todoFilter";
@@ -55,6 +57,21 @@ Column {
 				this.currentIndex = idx
 				todoStatusProto.filter = this.model.get(idx).text
 			}
+		}
+
+		Text {
+			ClickMixin { }
+			property Mixin hoverMixin: HoverMixin { }
+			anchors.right: parent.right;
+			anchors.verticalCenter: parent.verticalCenter;
+			anchors.rightMargin: 15;
+			font.pixelSize: 14;
+			font.underline: hoverMixin.value;
+			color: "#777";
+			text: "Clear completed";
+			visible: todoStatusProto.doneCount > 0;
+
+			onClicked: { todoStatusProto.clearCompleted() }
 		}
 	}
 
