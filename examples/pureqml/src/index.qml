@@ -60,6 +60,6 @@ Rectangle {
 
 	Footer {
 		anchors.top: content.bottom;
-		anchors.topMargin: 53;
+		anchors.topMargin: todoModel.count ? 54 : 63;
 	}
 }

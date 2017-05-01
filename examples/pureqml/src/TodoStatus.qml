@@ -16,7 +16,7 @@ Column {
 			anchors.leftMargin: 15;
 			font.pixelSize: 14;
 			color: "#777";
-			text: parent.parent.todoCount + " items left";
+			text: parent.parent.todoCount + " item" + (todoStatusProto.todoCount > 1 ? "s " : " ") + "left";
 		}
 
 		ListView {
@@ -26,6 +26,7 @@ Column {
 			orientation: ListView.Horizontal;
 			anchors.centerIn: parent;
 			spacing: 12;
+			contentFollowsCurrentItem: false;
 			model: ListModel {
 				ListElement { text: "All" } ListElement { text: "Active" } ListElement { text: "Completed" }
 			}
