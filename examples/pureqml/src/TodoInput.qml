@@ -1,5 +1,7 @@
 Rectangle {
 	signal addTodo;
+	signal toggleAll;
+	property bool allCompleted;
 	height: 65;
 	anchors.left: parent.left;
 	anchors.right: parent.right;
@@ -12,15 +14,18 @@ Rectangle {
 
 	Text {
 		id: selectAllCheckbox;
+		ClickMixin { }
 		anchors.top: parent.top;
 		anchors.left: parent.left;
 		anchors.topMargin: 24;
 		anchors.leftMargin: 17;
 		font.pixelSize: 22;
-		color: "#e6e6e6";
+		color: parent.allCompleted ? "#737373" : "#e6e6e6";
 		transform.rotate: 90;
 		text: "❯";
 		visible: todoModel.count;
+
+		onClicked: { this.parent.toggleAll() }
 	}
 
 	TextInput {

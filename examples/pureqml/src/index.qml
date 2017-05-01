@@ -46,7 +46,9 @@ Rectangle {
 		radius: 40;
 
 		TodoInput {
+			allCompleted: todoModel.count > 0 && todoModel.count == todoModel.doneCount;
 			onAddTodo(text): { todoModel.append({ text: text, done: false }) }
+			onToggleAll: { todoModel.toggleAll() }
 		}
 
 		TodoList {

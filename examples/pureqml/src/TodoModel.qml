@@ -13,6 +13,16 @@ ListModel {
 			this.append(data.rows)
 	}
 
+	toggleAll: {
+		var allItemsCompleted = this.count == this.doneCount
+		var nothingCompleted = this.count == this.todoCount
+		if (allItemsCompleted || nothingCompleted) {
+			for (var i = 0; i < this.count; ++i)
+				this.setProperty(i, "done", nothingCompleted)
+			this.reset()
+		}
+	}
+
 	clearCompleted: {
 		var last = this.count - 1
 		for (var i = last; i >= 0; --i)
