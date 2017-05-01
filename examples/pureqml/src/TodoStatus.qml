@@ -62,7 +62,6 @@ Column {
 		height: 4;
 		anchors.leftMargin: 3;
 		anchors.rightMargin: 3;
-		color: "f6f6f6";
 		border.color: "#ddd";
 	}
 
@@ -70,7 +69,6 @@ Column {
 		height: 4;
 		anchors.leftMargin: 6;
 		anchors.rightMargin: 6;
-		color: "f6f6f6";
 		border.color: "#ddd";
 	}
 

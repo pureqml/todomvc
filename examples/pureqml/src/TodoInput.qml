@@ -5,6 +5,10 @@ Rectangle {
 	anchors.right: parent.right;
 	color: "#fff";
 	focus: true;
+	effects.shadow.y: 2;
+	effects.shadow.blur: 1;
+	effects.shadow.spread: 1;
+	effects.shadow.color: "#00000015";
 
 	Text {
 		id: selectAllCheckbox;

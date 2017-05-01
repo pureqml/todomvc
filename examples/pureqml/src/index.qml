@@ -27,16 +27,22 @@ Rectangle {
 		color: "#B12F2F26";
 	}
 
+	Item {
+		anchors.fill: content;
+		anchors.topMargin: 20;
+		anchors.bottomMargin: 10;
+		effects.shadow.y: 22;
+		effects.shadow.blur: 50;
+		effects.shadow.spread: 5;
+		effects.shadow.color: "#00000015";
+	}
+
 	Column {
 		id: content;
 		width: 550;
 		anchors.top: header.bottom;
 		anchors.horizontalCenter: parent.horizontalCenter;
 		anchors.topMargin: 5;
-		//effects.shadow.y: 5;
-		//effects.shadow.blur: 30;
-		//effects.shadow.spread: 5;
-		//effects.shadow.color: "#00000015";
 		radius: 40;
 
 		TodoInput {
