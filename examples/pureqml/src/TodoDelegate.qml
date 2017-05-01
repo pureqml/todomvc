@@ -6,7 +6,8 @@ TodoRectangle {
 	property bool editMode;
 	property int index: model.index;
 	property Mixin hoverMixin: HoverMixin { }
-	height: todoText.paintedHeight + 35;
+	//height: 59;
+	height: todoText.paintedHeight + 31;
 
 	Text {
 		ClickMixin { }
@@ -26,7 +27,7 @@ TodoRectangle {
 		anchors.left: parent.left;
 		anchors.right: parent.right;
 		anchors.verticalCenter: parent.verticalCenter;
-		anchors.leftMargin: 50;
+		anchors.leftMargin: 60;
 		anchors.rightMargin: 50;
 		font.pixelSize: 24;
 		font.strike: model.done;

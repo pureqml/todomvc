@@ -1,16 +1,22 @@
-TodoRectangle {
+Rectangle {
 	signal addTodo;
+	height: 65;
+	anchors.left: parent.left;
+	anchors.right: parent.right;
+	color: "#fff";
 	focus: true;
 
 	Text {
 		id: selectAllCheckbox;
+		anchors.top: parent.top;
 		anchors.left: parent.left;
-		anchors.verticalCenter: parent.verticalCenter;
-		anchors.leftMargin: 15;
+		anchors.topMargin: 24;
+		anchors.leftMargin: 17;
 		font.pixelSize: 22;
 		color: "#e6e6e6";
 		transform.rotate: 90;
 		text: "❯";
+		visible: todoModel.count;
 	}
 
 	TextInput {
@@ -19,10 +25,10 @@ TodoRectangle {
 		anchors.left: selectAllCheckbox.right;
 		anchors.right: parent.right;
 		anchors.bottom: parent.bottom;
-		anchors.leftMargin: 15;
+		anchors.leftMargin: 25;
 		font.pixelSize: 24;
 		placeholder.text: "What needs to be done?";
-		placeholder.color: "#d9d9d9";
+		placeholder.color: "#e6e6e6";
 		placeholder.font.italic: true;
 		color: "#4d4d4d";
 	}

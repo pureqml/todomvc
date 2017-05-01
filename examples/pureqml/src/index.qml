@@ -30,18 +30,25 @@ Rectangle {
 		anchors.top: header.bottom;
 		anchors.horizontalCenter: parent.horizontalCenter;
 		anchors.topMargin: 5;
-		effects.shadow.y: 10;
-		effects.shadow.blur: 30;
-		effects.shadow.spread: 5;
-		effects.shadow.color: "#00000015";
-		radius: 10;
+		//effects.shadow.y: 5;
+		//effects.shadow.blur: 30;
+		//effects.shadow.spread: 5;
+		//effects.shadow.color: "#00000015";
+		radius: 40;
 
-		TodoInput { onAddTodo(text): { todoModel.append({ text: text, done: false }) } }
+		TodoInput {
+			onAddTodo(text): { todoModel.append({ text: text, done: false }) }
+		}
 
-		TodoList { id: todoList; filterMode: status.filter; }
+		TodoList {
+			id: todoList;
+
+			filterMode: status.filter;
+		}
 
 		TodoStatus {
 			id: status;
+			visible: todoModel.count;
 
 			todoCount: todoModel.todoCount;
 		}
@@ -49,6 +56,6 @@ Rectangle {
 
 	Footer {
 		anchors.top: content.bottom;
-		anchors.topMargin: 64;
+		anchors.topMargin: 53;
 	}
 }

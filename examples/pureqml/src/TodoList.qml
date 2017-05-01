@@ -1,8 +1,10 @@
 ListView {
 	property string filterMode;
+	//height: count * 59;
 	height: contentHeight;
 	anchors.left: parent.left;
 	anchors.right: parent.right;
+	anchors.topMargin: 1;
 	model: ProxyModel {
 		target: todoModel;
 
@@ -25,7 +27,9 @@ ListView {
 		onEdit(idx, text): { this.parent.edit(idx, text) }
 		onToggleDone(idx): { this.parent.toggleDone(idx) }
 	}
-
+//onCountChanged: { log("COUNT", value) }
+//onHeightChanged: { log("HEIGHT", value) }
+onContentHeightChanged: { log("contentHEIGHT", value) }
 	onFilterModeChanged: { this.model.rebuild() }
 
 	remove(idx): { this.model.remove(idx); }

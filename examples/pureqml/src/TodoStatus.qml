@@ -7,7 +7,7 @@ Column {
 	spacing: 1;
 
 	TodoRectangle {
-		height: 35;
+		height: 40;
 
 		Text {
 			anchors.left: parent.left;
@@ -23,7 +23,7 @@ Column {
 			height: contentHeight;
 			orientation: ListView.Horizontal;
 			anchors.centerIn: parent;
-			spacing: 20;
+			spacing: 12;
 			model: ListModel {
 				ListElement { text: "All" } ListElement { text: "Active" } ListElement { text: "Completed" }
 			}
@@ -31,9 +31,9 @@ Column {
 				ClickMixin { }
 				property Mixin hoverMixin: HoverMixin { }
 				property int index: model.index;
-				width: statusDelegateText.width + 10;
+				width: statusDelegateText.width + 14;
 				height: statusDelegateText.height + 5;
-				radius: 5;
+				radius: 2;
 				border.width: hoverMixin.value || parent.currentIndex == index ? 1 : 0;
 				border.color: parent.currentIndex == index ? "#AF2F2F32" : "#AF2F2F19";
 
@@ -59,11 +59,15 @@ Column {
 		height: 4;
 		anchors.leftMargin: 3;
 		anchors.rightMargin: 3;
+		color: "f6f6f6";
+		border.color: "#ddd";
 	}
 
 	TodoRectangle {
 		height: 4;
 		anchors.leftMargin: 6;
 		anchors.rightMargin: 6;
+		color: "f6f6f6";
+		border.color: "#ddd";
 	}
 }
