@@ -15,6 +15,7 @@ Rectangle {
 	Text {
 		id: selectAllCheckbox;
 		ClickMixin { }
+		HoverMixin { cursor: "default"; }
 		anchors.top: parent.top;
 		anchors.left: parent.left;
 		anchors.topMargin: 24;

@@ -34,7 +34,7 @@ Column {
 			}
 			delegate: Rectangle {
 				ClickMixin { }
-				property Mixin hoverMixin: HoverMixin { }
+				property Mixin hoverMixin: HoverMixin { cursor: "pointer"; }
 				property int index: model.index;
 				width: statusDelegateText.width + 14;
 				height: statusDelegateText.height + 5;
@@ -61,7 +61,7 @@ Column {
 
 		Text {
 			ClickMixin { }
-			property Mixin hoverMixin: HoverMixin { }
+			property Mixin hoverMixin: HoverMixin { cursor: "pointer"; }
 			anchors.right: parent.right;
 			anchors.verticalCenter: parent.verticalCenter;
 			anchors.rightMargin: 15;

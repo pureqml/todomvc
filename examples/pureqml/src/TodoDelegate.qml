@@ -6,7 +6,7 @@ TodoRectangle {
 	property bool editMode;
 	property int index: model.index;
 	property Mixin hoverMixin: HoverMixin { }
-	height: todoText.paintedHeight + 31;
+	height: !editMode ? todoText.paintedHeight + 31 : 59;
 
 	Text {
 		ClickMixin { }
@@ -22,6 +22,7 @@ TodoRectangle {
 
 	Text {
 		id: todoText;
+		HoverMixin { cursor: "default"; }
 		DoubleClickMixin { }
 		anchors.left: parent.left;
 		anchors.right: parent.right;
@@ -75,13 +76,13 @@ TodoRectangle {
 
 	Text {
 		ClickMixin { }
-		property Mixin hoverMixin: HoverMixin { }
+		property Mixin hoverMixin: HoverMixin { cursor: "default"; }
 		anchors.right: parent.right;
 		anchors.verticalCenter: parent.verticalCenter;
 		anchors.rightMargin: 20;
 		color: hoverMixin.value ? "#af5b5e" : "#cc9a9a";
 		font.pixelSize: 30;
-		visible: parent.hoverMixin.value;
+		visible: parent.hoverMixin.value && !parent.editMode;
 		text: "×";
 
 		onClicked: { this.parent.remove(this.parent.index) }
