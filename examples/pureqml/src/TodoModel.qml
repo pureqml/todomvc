@@ -14,13 +14,10 @@ ListModel {
 	}
 
 	toggleAll: {
-		var allItemsCompleted = this.count == this.doneCount
-		var nothingCompleted = this.count == this.todoCount
-		if (allItemsCompleted || nothingCompleted) {
-			for (var i = 0; i < this.count; ++i)
-				this.setProperty(i, "done", nothingCompleted)
-			this.reset()
-		}
+		var newFlagValue = (this.count == this.todoCount) || this.todoCount
+		for (var i = 0; i < this.count; ++i)
+			this.setProperty(i, "done", newFlagValue)
+		this.reset()
 	}
 
 	clearCompleted: {
