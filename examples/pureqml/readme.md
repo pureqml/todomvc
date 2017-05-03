@@ -9,3 +9,8 @@
 
 * [Lessons](http://pureqml.com/lessons)
 * [Documentation](http://pureqml.com/docs)
+
+
+## MVC in PureQML
+
+PureQML like Qt-like language provides MVC pattern. In this example TodoModel describes todo items Model, TodoList is View and TodoDelegate is controller.
