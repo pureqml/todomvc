@@ -39,7 +39,7 @@ Rectangle {
 
 	Column {
 		id: content;
-		width: 550;
+		width: context.width > 550 ? 550 : context.width;
 		anchors.top: header.bottom;
 		anchors.horizontalCenter: parent.horizontalCenter;
 		anchors.topMargin: 5;

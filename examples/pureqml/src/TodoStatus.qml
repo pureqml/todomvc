@@ -10,11 +10,12 @@ Column {
 	spacing: 1;
 
 	TodoRectangle {
-		height: 40;
+		height: context.width > 550 ? 40 : 70;
 
 		Text {
+			anchors.top: parent.top;
 			anchors.left: parent.left;
-			anchors.verticalCenter: parent.verticalCenter;
+			anchors.topMargin: 11;
 			anchors.leftMargin: 15;
 			font.pixelSize: 14;
 			color: "#777";
@@ -25,8 +26,10 @@ Column {
 			id: filterList;
 			width: contentWidth;
 			height: contentHeight;
+			anchors.bottom: parent.bottom;
+			anchors.horizontalCenter: parent.horizontalCenter;
+			anchors.bottomMargin: 11;
 			orientation: ListView.Horizontal;
-			anchors.centerIn: parent;
 			spacing: 12;
 			contentFollowsCurrentItem: false;
 			model: ListModel {
@@ -62,8 +65,9 @@ Column {
 		Text {
 			ClickMixin { }
 			property Mixin hoverMixin: HoverMixin { cursor: "pointer"; }
+			anchors.top: parent.top;
 			anchors.right: parent.right;
-			anchors.verticalCenter: parent.verticalCenter;
+			anchors.topMargin: 11;
 			anchors.rightMargin: 15;
 			font.pixelSize: 14;
 			font.underline: hoverMixin.value;
