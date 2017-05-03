@@ -4,6 +4,7 @@ ListView {
 	anchors.left: parent.left;
 	anchors.right: parent.right;
 	anchors.topMargin: 1;
+	contentFollowsCurrentItem: false;
 	model: ProxyModel {
 		target: todoModel;
 
