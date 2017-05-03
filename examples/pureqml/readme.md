@@ -14,3 +14,13 @@
 ## MVC in PureQML
 
 PureQML like Qt-like language provides MVC pattern. In this example TodoModel describes todo items Model, TodoList is View and TodoDelegate is controller.
+
+## Install
+
+Just run
+```npm install```
+
+## Build
+Run this command
+```node_modules/pureqml-core/build```
+And checkout `build.web` directory
