@@ -1,7 +1,7 @@
 Column {
 	id: todoStatusProto;
 	signal clearCompleted;
-	property int doneCount;
+	property int completedCount;
 	property int todoCount;
 	property string filter;
 	property string name: "todoFilter";
@@ -73,7 +73,7 @@ Column {
 			font.underline: hoverMixin.value;
 			color: "#777";
 			text: "Clear completed";
-			visible: todoStatusProto.doneCount > 0;
+			visible: todoStatusProto.completedCount > 0;
 
 			onClicked: { todoStatusProto.clearCompleted() }
 		}

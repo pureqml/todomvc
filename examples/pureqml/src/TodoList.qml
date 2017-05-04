@@ -11,9 +11,9 @@ ListView {
 		function filter(item) {
 			switch (this.parent.filterMode) {
 			case 'Active':
-				return !item.done
+				return !item.completed
 			case 'Completed':
-				return item.done
+				return item.completed
 			case 'All':
 			default:
 				return true
@@ -25,21 +25,21 @@ ListView {
 	delegate: TodoDelegate {
 		onRemove(idx): { this.parent.remove(idx) }
 		onEdit(idx, text): { this.parent.edit(idx, text) }
-		onToggleDone(idx): { this.parent.toggleDone(idx) }
+		onToggleCompleted(idx): { this.parent.toggleCompleted(idx) }
 	}
 
 	onFilterModeChanged: { this.model.rebuild() }
 
 	remove(idx): { this.model.remove(idx); }
 
-	edit(idx, text): {
-		this.model.setProperty(idx, "text", text)
+	edit(idx, title): {
+		this.model.setProperty(idx, "title", title)
 		this.model.target.update()
 	}
 
-	toggleDone(idx): {
-		var done = this.model.get(idx).done
-		this.model.setProperty(idx, "done", !done)
+	toggleCompleted(idx): {
+		var completed = this.model.get(idx).completed
+		this.model.setProperty(idx, "completed", !completed)
 		this.model.target.update()
 	}
 }

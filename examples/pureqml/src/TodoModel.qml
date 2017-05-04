@@ -1,8 +1,8 @@
 ListModel {
 	signal save;
 	property int todoCount;
-	property int doneCount;
-	property string name: "todoItems";
+	property int completedCount;
+	property string name: "todo-pureqml";
 
 	onReset: { this.update() }
 	onRowsRemoved: { this.update() }
@@ -16,14 +16,14 @@ ListModel {
 	toggleAll: {
 		var newFlagValue = (this.count == this.todoCount) || this.todoCount
 		for (var i = 0; i < this.count; ++i)
-			this.setProperty(i, "done", newFlagValue)
+			this.setProperty(i, "completed", newFlagValue)
 		this.reset()
 	}
 
 	clearCompleted: {
 		var last = this.count - 1
 		for (var i = last; i >= 0; --i)
-			if (this._rows[i].done)
+			if (this._rows[i].completed)
 				this.remove(i)
 	}
 
@@ -32,9 +32,9 @@ ListModel {
 
 		var todo = 0
 		for (var i = 0; i < this.count; ++i)
-			if (!this._rows[i].done)
+			if (!this._rows[i].completed)
 				++todo
-		this.doneCount = this.count - todo
+		this.completedCount = this.count - todo
 		this.todoCount = todo
 	}
 }

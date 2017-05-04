@@ -2,7 +2,7 @@ TodoRectangle {
 	ClickMixin { }
 	signal edit;
 	signal remove;
-	signal toggleDone;
+	signal toggleCompleted;
 	property bool editMode;
 	property int index: model.index;
 	property Mixin hoverMixin: HoverMixin { }
@@ -15,9 +15,9 @@ TodoRectangle {
 		width: 40;
 		height: 40;
 		anchors.verticalCenter: parent.verticalCenter;
-		text: model.done ? checkboxOn : checkboxOff;
+		text: model.completed ? checkboxOn : checkboxOff;
 
-		onClicked: { this.parent.toggleDone(this.parent.index) }
+		onClicked: { this.parent.toggleCompleted(this.parent.index) }
 	}
 
 	Text {
@@ -30,9 +30,9 @@ TodoRectangle {
 		anchors.leftMargin: 60;
 		anchors.rightMargin: 50;
 		font.pixelSize: 24;
-		font.strike: model.done;
-		text: model.text;
-		color: model.done ? "#d9d9d9" : "#4d4d4d";
+		font.strike: model.completed;
+		text: model.title;
+		color: model.completed ? "#d9d9d9" : "#4d4d4d";
 		wrapMode: Text.WrapAnywhere;
 
 		onDoubleClicked: {
@@ -49,7 +49,7 @@ TodoRectangle {
 		anchors.right: parent.right;
 		anchors.bottom: parent.bottom;
 		visible: parent.editMode;
-		text: model.text;
+		text: model.title;
 		font.pixelSize: 24;
 		color: "#4d4d4d";
 		border.width: 1;

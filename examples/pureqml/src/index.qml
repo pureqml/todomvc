@@ -46,9 +46,9 @@ Rectangle {
 		radius: 40;
 
 		TodoInput {
-			allCompleted: todoModel.count > 0 && todoModel.count == todoModel.doneCount;
+			allCompleted: todoModel.count > 0 && todoModel.count == todoModel.completedCount;
 
-			onAddTodo(text): { todoModel.append({ text: text, done: false }) }
+			onAddTodo(title): { todoModel.append({ title: title, completed: false }) }
 			onToggleAll: { todoModel.toggleAll() }
 		}
 
@@ -62,7 +62,7 @@ Rectangle {
 			id: todoStatus;
 			visible: todoModel.count;
 			todoCount: todoModel.todoCount;
-			doneCount: todoModel.doneCount;
+			completedCount: todoModel.completedCount;
 
 			onClearCompleted: { todoModel.clearCompleted() }
 			onFilterChanged: { storage.setValue(this.name, { value: this.filter }) }
