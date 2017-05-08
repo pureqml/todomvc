@@ -41,6 +41,10 @@ Rectangle {
 		placeholder.color: "#e6e6e6";
 		placeholder.font.italic: true;
 		color: "#4d4d4d";
+
+		/// For autotest
+		onCompleted: { this.element.setAttribute('id', 'new-todo') }
+		///////////////
 	}
 
 	onSelectPressed: {

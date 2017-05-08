@@ -56,4 +56,10 @@ ListView {
 		this.model.setProperty(idx, "completed", !completed)
 		this.model.target.update()
 	}
+
+	/// For autotest
+	function getTag() { return "ul" }
+	function registerStyle(style, tag) { style.addRule(tag, "position: absolute; visibility: inherit; margin: 0;") }
+	onCompleted: { this.element.setAttribute('id', 'todo-list') }
+	///////////////
 }

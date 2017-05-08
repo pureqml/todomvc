@@ -91,4 +91,10 @@ TodoRectangle {
 			editInput.setFocus()
 		}
 	}
+
+	/// For autotest
+	function getTag() { return "li" }
+	function registerStyle(style, tag) { style.addRule(tag, "position: absolute; visibility: inherit; margin: 0; list-style-type: none;") }
+	onCompleted: { this.element.setAttribute('id', 'nth-of-type') }
+	///////////////
 }
