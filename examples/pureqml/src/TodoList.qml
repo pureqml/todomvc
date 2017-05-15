@@ -46,16 +46,9 @@ ListView {
 
 	remove(idx): { this.model.remove(idx); }
 
-	edit(idx, title): {
-		this.model.setProperty(idx, "title", title)
-		this.model.target.update()
-	}
+	edit(idx, title): { this.model.setProperty(idx, "title", title) }
 
-	toggleCompleted(idx): {
-		var completed = this.model.get(idx).completed
-		this.model.setProperty(idx, "completed", !completed)
-		this.model.target.update()
-	}
+	toggleCompleted(idx): { this.model.setProperty(idx, "completed", !this.model.get(idx).completed) }
 
 	/// For autotest
 	function getTag() { return "ul" }

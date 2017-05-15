@@ -6,6 +6,7 @@ ListModel {
 
 	onReset: { this.update() }
 	onRowsRemoved: { this.update() }
+	onRowsChanged: { this.update() }
 	onRowsInserted: { this.update() }
 
 	buildModel(data): {
